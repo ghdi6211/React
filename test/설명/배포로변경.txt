@@ -1,0 +1,5 @@
+webpack.config.js 에서
+  module.export 의
+    1.mode를 development 에서 production 으로 변경
+    2.process.env.NODE_ENV = 'production' 추가해줌
+    위와같이 환경변수를 설정해준다

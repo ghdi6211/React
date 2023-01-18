@@ -1,0 +1,24 @@
+componentDidMount() { //컴포넌트가 처음 렌더링 될때 실행됨 !!리렌더링시 실행x
+  //비동기 요청을 많함
+  setInterval(( => { //1초마다 콘솔로그에 test를 찍어내겠다.
+    console.log('test');
+  }, 1000);
+  //위에 같은 경우는 setInterval를 종료 시키지않는 이상 계속해서 웹사이트에서 1초마다 찍어냄
+  //그러므로 componentWillUnmount에서 종료를 시켜줘야함.
+}
+
+componentDidUpdate() { //리렌더링시 실행
+  
+}
+
+componentWillUnmount() { //컴포넌트가 제거될때 실행.
+ //비동기 요청을 정리
+ clearInterval(interval);;
+}
+
+위에 것을 합쳐서 라이프 사이클라고 부름
+
+class의 실행 순서
+ constructor가 실행됨 -> render -> ref -> componentDidMount ->
+  setState/props가 바뀔때 -> shouldComponentUpdate -> render -> componentDidUpdate ->
+    컴포넌트가 제거시 -> componentWillUnmount -> 소멸

@@ -1,0 +1,29 @@
+require 와 import 의 차이
+  require = node의 모듈 시스템
+  module.exports = ??? 을 하면 그것을 다른 파일에서 require해서 불러올수잇음.
+    module.export = export default 
+  require 불러오기 > const ex = require('./ex');
+
+  import 불러오기 > import ex from './ex';
+
+
+  require와 import는 살짝 호환가능
+
+  import는 하나로 합쳐줄수있다> iport ex, { ex } form 'ex';
+
+  export const ex = 'ex'; 는 불러올때 import { ex };
+    > 여러번 쓸수있다.
+  export default ex; 는 import ex;
+    > 디폴트는 한번만 쓸수있다.
+    > module.export 는 엄밀히 말하면 다른개념 알고만 있을것
+
+  노드 모듈 시스템에서
+    module.export = { hello: 'a'}; = export.hello = 'a'; 는 같다
+
+  노드에서 웹팩을 돌릴시
+    const ex = require('ex');
+    export.hello = 'hello';
+    module.export = ex;
+    위에 세가지 형식을 지원한다 = import는 에러가나옴
+
+    import가 써지는 이유는 babel에서 변환해줌
